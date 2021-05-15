@@ -8,7 +8,6 @@ import {
   PasswordInput,
   themeButton,
 } from './styled.js';
-
 // 1. Hello world
 const App = () => (
   <div className="App">
@@ -254,7 +253,7 @@ const App = () => (
 //         Search
 //       </Button.Search>
 //       <span>DatePicker:</span><DatePicker />
-//       <span>DatePicker:</span><DateRangePicker/>
+//       <span>DateRangePicker:</span><DateRangePicker/>
 //     </FormWrapper>
 //   </ThemeProvider>
 // )
