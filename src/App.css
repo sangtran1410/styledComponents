@@ -37,3 +37,21 @@
   }
 }
 
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation: mymove 3s infinite;
+}
+
+@keyframes mymove {
+  from {top: 0px;}
+  to {top: 200px;}
+}
+
+.abc {
+  color: red;
+  font-weight: bold;
+}
+

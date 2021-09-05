@@ -1,19 +1,25 @@
 import styled, { css, keyframes } from 'styled-components'
 
 // 1. Hello world
-export const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  text-align: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  background-color: #282c34;
-`;
+// export const ContentWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   min-height: 100vh;
+//   text-align: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+//   background-color: #282c34;
+// `;
 
-// 2. Base on props
+/**
+ * ================
+ *  BASIC
+ * ================
+ */
+
+// 1. Adapting Base on props
 // export const ContentWrapper = styled.div`
 //   display: flex;
 //   flex-direction: column;
@@ -26,7 +32,7 @@ export const ContentWrapper = styled.div`
 //   background: ${props => props.primary ? props.primary: "#00b8e6"};
 // `;
 
-// 3. Extending styles
+// 2. Extending styles
 // export const Button = styled.button`
 //   color: palevioletred;
 //   font-size: 1em;
@@ -43,36 +49,27 @@ export const ContentWrapper = styled.div`
 //   border-color: tomato;
 // `;
 
-// 4. Pseudo
-// export const Button = styled.button`
+// 3. Styling any component
+// This could be react-router-dom's Link for example
+// export const Link = ({ className, children }) => (
+//   <a className={className}>
+//     {children}
+//   </a>
+// );
+
+// export const StyledLink = styled(Link)`
 //   color: palevioletred;
-//   font-size: 1em;
-//   margin: 1em;
-//   padding: 0.25em 1em;
-//   border: 2px solid palevioletred;
-//   border-radius: 3px;
-//   cursor: pointer;
-//   transition: all 0.3s;
+//   font-weight: bold;
 // `;
 
-// export const ExtendButton = styled(Button)`
-//   &:hover {
-//     color: #66ffcc;
-//     background: #00b8e6;
-//     border: 2px solid #66ffcc;
-//   }
-
-//   &.something {
-//     color: white;
-//     background: #282c34;
-//     border: 2px solid #009999;
-//   }
-
-//   .something-else & {
-//     color: black;
-//     background: white;
-//     border: 2px solid black;
-//   }
+// 4. Passed props
+// export const Input = styled.input`
+//   padding: 0.5em;
+//   margin: 0.5em;
+//   color: ${props => props.inputColor || "black"};
+//   background: papayawhip;
+//   border: none;
+//   border-radius: 3px;
 // `;
 
 // 5. Attaching additional props
@@ -92,7 +89,7 @@ export const ContentWrapper = styled.div`
 //   padding: ${props => props.size};
 // `;
 
-// 6. Overriding .attrs
+// 5.1 Overriding .attrs
 // export const Input = styled.input.attrs(props => ({
 //   type: "text",
 //   size: props.size || "1em",
@@ -108,7 +105,13 @@ export const ContentWrapper = styled.div`
 //   border: 2px solid aqua;
 // `;
 
-// 7. Theming
+/**
+ * ================
+ *  ADVANCE
+ * ================
+ */
+
+// 6. Theming
 // export const Button = styled.button`
 //   font-size: 1em;
 //   margin: 1em;
@@ -121,7 +124,7 @@ export const ContentWrapper = styled.div`
 //   border: 2px solid ${props => props.theme.main};
 // `;
 
-// 8. Function themes
+// 6.1 Function themes
 // export const Button = styled.button`
 //   color: ${props => props.theme.fg};
 //   border: 2px solid ${props => props.theme.fg};
@@ -133,15 +136,46 @@ export const ContentWrapper = styled.div`
 //   border-radius: 3px;
 // `;
 
-// 9. theme props
-// export const Button = styled.button`
-//   font-size: 1em;
-//   margin: 1em;
-//   padding: 0.25em 1em;
+// 7. Refs 
+// export const Input = styled.input`
+//   padding: 0.5em;
+//   margin: 0.5em;
+//   color: palevioletred;
+//   background: papayawhip;
+//   border: none;
 //   border-radius: 3px;
+// `;
 
-//   color: ${props => props.theme.main};
-//   border: 2px solid ${props => props.theme.main};
+// 9. Referring to other components 
+// export const Label = styled.span`
+//   display: flex;
+//   align-items: center;
+//   line-height: 1.2;
+//   transition: all .5s;
+
+//   &::before {
+//     content: '◀';
+//     margin: 0 10px;
+//   }
+// `;
+
+// export const RefOther = styled.span`
+//   display: flex;
+//   align-items: center;
+//   padding: 5px 10px;
+//   background: papayawhip;
+//   color: palevioletred;
+
+//   &:hover ${Label}::before {
+//     color: red;
+//   }
+// `;
+
+// export const Icon = styled.svg`
+//   flex: none;
+//   transition: fill 0.25s;
+//   width: 48px;
+//   height: 48px;
 // `;
 
 // 10. Style object
@@ -158,8 +192,9 @@ export const ContentWrapper = styled.div`
  * ================
  */
 
-// css
+// 2. css
 // const complexMixin = css`
+//   font-weight: bold;
 //   color: ${props => (props.greenColor ? 'green' : 'black')};
 // `
 
@@ -167,7 +202,10 @@ export const ContentWrapper = styled.div`
 //   ${props => (props.complex ? complexMixin : 'color: blue;')};
 // `
 
-// keyframes
+// export const complexMixin = css`
+//   font-weight: bold;
+// `
+// 3. keyframes
 // const pulse = keyframes`
 //   0% {
 //     opacity: 0;
@@ -186,10 +224,10 @@ export const ContentWrapper = styled.div`
 //   animation: ${animation};
 // `
 
-// isStyledComponent
-// import { isStyledComponent } from 'styled-components'
+// 4. isStyledComponent
+import { isStyledComponent } from 'styled-components'
 
-// const Button = null;
+const Button = null;
 
 // const Button = styled.button`
 //   color: black;
@@ -202,12 +240,12 @@ export const ContentWrapper = styled.div`
 //   transition: all 0.3s;
 // `;
 
-// const defaultButton = styled.button`
+// const GreenButton = styled.button`
 //   color: green;
 //   font-size: 1em;
 //   margin: 1em;
 //   padding: 0.25em 1em;
-//   border: 2px solid #ccc;
+//   border: 2px solid green;
 //   border-radius: 3px;
 //   cursor: pointer;
 //   transition: all 0.3s;
@@ -215,7 +253,7 @@ export const ContentWrapper = styled.div`
 
 // export const TargetedButton = isStyledComponent(Button)
 //   ? Button
-//   : defaultButton;
+//   : GreenButton;
 
 
 /**
@@ -224,10 +262,10 @@ export const ContentWrapper = styled.div`
  * ================
  */
 
-// export const FormWrapper = styled.div`
-//   display: grid;
-//   margin: 200px auto;
-//   width: 500px;
-//   grid-template-columns: repeat(2, 1fr);
-//   gap: 10px;
-// `;
+export const FormWrapper = styled.div`
+  display: grid;
+  margin: 200px auto;
+  width: 500px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+`;

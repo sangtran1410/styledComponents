@@ -95,17 +95,6 @@ export const defaultTheme = {
   COLORS,
   BG_PRIMARY_COLOR: COLORS.BLUE,
 
-  // Breakpoint list
-  // dependon antdesign
-  BREAKPOINTS: {
-    XS: '576px',
-    SM: '576px',
-    MD: '768px',
-    LG: '992px',
-    XL: '1200px',
-    XXL: '1600px',
-  },
-
   FONTS: {
     FONT_FAMILY: 'Arial',
   },
